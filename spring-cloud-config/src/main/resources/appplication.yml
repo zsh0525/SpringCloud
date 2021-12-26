@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: zsh-config
+  cloud:
+    server:
+      git:
+        uri: https://github.com/zsh0525/SpringCloud.git
+        search-paths: config
+        # 私有得配置
+        #username:
+        #password:
