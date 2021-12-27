@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          #           搜索
+          search-paths: config
+          # git地址
+          uri: https://github.com/zsh0525/SpringCloud.git
+          #          修改分支
+          default-label: main
+          #          私有得配置
+          username: XXXX
+          password: XXXX

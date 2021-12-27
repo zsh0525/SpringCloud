@@ -1,13 +1,14 @@
 spring:
   application:
     name: zsh-config
+
   cloud:
     config:
       server:
-        git:
-          default-label: main
-          uri: https://github.com/zsh0525/SpringCloud.git
-          search-paths: config
-          # 私有得配置
-          username: 824637534@qq.com
-          password: Ff1334149
+        native:
+          search-locations: ${user.dir}/config
+
+  profiles:
+    active: git # native or git,git：读取的application.yml
+
+
