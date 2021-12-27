@@ -9,6 +9,6 @@ spring:
           search-locations: ${user.dir}/config
 
   profiles:
-    active: git # native or git,git：读取的application.yml
+    active: git # native or git,git：读取的application-git.yml
 
 
