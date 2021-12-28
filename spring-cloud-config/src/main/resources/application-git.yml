@@ -5,10 +5,17 @@ spring:
         git:
           #           搜索
           search-paths: config
-          # git地址
-          uri: https://github.com/zsh0525/SpringCloud.git
-          #          修改分支
-          default-label: main
+          # git地址 ,github太慢。这里用gitee
+          uri: https://gitee.com/zsh0525/config.git
+          #          修改分支 ，默认master
+          default-label: master
           #          私有得配置
-          username: XXXX
-          password: XXXX
+#          username: XXXX
+#          password: XXXX
+
+# 开发actuator端口
+management:
+  endpoints:
+    web:
+      exposure:
+        incloud: "*"
