@@ -2,10 +2,27 @@
     * 注意SpringCloud版本和SpringBoot版本。
         https://spring.io/projects/spring-cloud
     * 注意配置文件的优先级：bootstrap.XXXX > application.xxxxx
-        
+    * 官网才是永远的神。   
+    * eureka原数据文件：spring-cloud-netflix-eureka-client-XXXXX.jar\spring-configuration-metadata.json 
     
-# SpringCloud组件学习及相关注意事项
-###### SpringCloudConfig 配置式管理服务，用于管理项目中所涉及的配置数据。配置中心可以位于github丶SVN或者本地。
+# SpringCloud组件学习及相关注意事项(基于 SpringCloud 2020.0.5 ,SpringBoot版本 2.5.X )
+######springCloudEureka:Cloud核心组件
+   * 简介
+        * 基于Netflix实现的服务注册中心。分为服务端和应用端，服务端为服务注册中心，应用端可向服务端注册自己的服务。
+   * 工作原理
+        * Eureka分为服务端和应用端，应用端又可分为2个角色：消费者和提供者，消费者(eureka.client.registerWithEureka:false)可不需要将自己的服务向服务中心注册，提供者(eureka.client.registerWithEureka:true)需向服务中心注册自己，
+            * 消费者工作原理：
+                * 启动时，拉去注册中心的服务信息，并生成一个注册表缓存到本地。
+                * 在运行过程中，定时更新服务注册信息。
+                * 通过http请求调用远程服务。
+            * 提供者工作原理：
+                * 启动时就会向注册中心发起register请求， 提供自己的一些元数据（IP 地址、端口，运行状况指示符 URL，主页等）向服务中心注册。
+                * 在运行过程中，定时向注册中心发送renew心跳，证明“我还活着”
+                * 停止服务提供者，向注册中心发起cancel请求，清空当前服务注册信息。
+                 
+###### SpringCloudConfig 
+   * 简介 
+        * 配置式管理服务，用于管理项目中所涉及的配置数据。配置中心可以位于github丶SVN或者本地。分为服务端丶应用端。
 
    * 工作原理？
         * cloud-config分为服务端和客户端，服务端用于拉去配置文件，并将读取到的配置文件信息在服务端做缓存。客户端主要获取服务端的配置，并将客户端的数据缓存
@@ -29,5 +46,5 @@
         * 注：本地配置中心若引入的为外部文件自动刷新，github需要配置webhooks。（可内网穿透工具实现）。若引入了eureka依赖可不用引入actuator组件。
    * spring-cloud-config: 服务端配置说明见resources/application.yml
    * spring-cloud-config-client: 应用端配置说明见resources/bootstrap.yml
-    
- * spring-cloud-eureka：服务注册中心服务。
+ 
+

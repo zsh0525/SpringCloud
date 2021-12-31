@@ -1,0 +1,19 @@
+# 相关属性见https://docs.spring.io/spring-cloud-netflix/docs/3.0.5-SNAPSHOT/reference/html/appendix.html
+server:
+  port: 8080
+eureka:
+  instance:
+    hostname: localhost
+    name: eurekaServer
+  # 首页访问路径
+  dashborad:
+    path: /eurekaServer
+  client:
+  # eureka服务中心 需配置以下
+    # 是否获取服务中心的信息
+    fetchRegistery: false
+    # 是否注册自己
+    registerWithEureka: false
+    # 服务中心是。由于是自己，因此与该项目的端口匹配。不设置默认访问8761端口。
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
