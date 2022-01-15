@@ -1,6 +1,6 @@
 # 相关属性见https://docs.spring.io/spring-cloud-netflix/docs/3.0.5-SNAPSHOT/reference/html/appendix.html
 server:
-  port: 8080
+  port: 8081
 eureka:
   instance:
     hostname: localhost
@@ -9,7 +9,7 @@ eureka:
   dashborad:
     path: /eurekaServer
   client:
-  # eureka服务中心 需配置以下
+    # eureka服务中心 需配置以下
     # 是否获取服务中心的信息
     fetchRegistery: false
     # 是否注册自己

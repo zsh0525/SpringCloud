@@ -1,6 +1,11 @@
 server:
   port: 8081
 
+# 日志输出
+logging:
+  level:
+    web: trace
+
 spring:
   application:
     name: zsh-config

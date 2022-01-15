@@ -27,11 +27,24 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
+        <dependency>
+            <!--  该版本的spring-cloud-starter-config.pom文件里没有引入client依赖。需手动导入。-->
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-client</artifactId>
+        </dependency>
         <!--    actuator事件组件    -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
     </dependencies>
+    <repositories>
+        <!--  当前maven使用的镜像地址       -->
+        <repository>
+            <id>aliYun</id>
+            <name>aliYUn</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </repository>
+    </repositories>
 
 </project>

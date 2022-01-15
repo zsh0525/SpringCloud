@@ -8,12 +8,10 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author
- * @description
+ * @description 测试地址：http://localhost:8082/refresh/getProperties
  * @date
  */
 @SpringBootApplication
-@EnableAutoConfiguration
-@Configuration
 public class ConfigClientApplication {
     public static void main(String[] args) {
         SpringApplication.run(ConfigClientApplication.class, args);
