@@ -42,20 +42,20 @@
    * 服务端:
         * 基本属性配置 
             * spring.cloud.config.git:
-                  * uri:git地址
-                  * default-label: 分支，默认master
-                  * username:git账号
-                  * password:git密码
-                  * search-paths:配置文件所在目录，存在子目录中需要配置。
+                * uri:git地址
+                * default-label: 分支，默认master
+                * username:git账号
+                * password:git密码
+                * search-paths:配置文件所在目录，存在子目录中需要配置。
             
         * 使用见spring-cloud-config项目。该项目可供客户端的直连模式或者从eureka注册中心获取。
    * 客户端基本配置: 应用端配置说明见resources/bootstrap.yml
         * spring.cloud.config.git:   
-              * name: zsh-config server的服务名
-              * label: master  分支
-              * profile: dev 
-              * uri:  配置中心服务地址
-              * 注：以上为配置的最基本的属性，
+            * name: zsh-config server的服务名
+            * label: master  分支
+            * profile: dev 
+            * uri:  配置中心服务地址
+            * 注：以上为配置的最基本的属性，
         * 注：
             * 直连模式（即不把server注册到eureka）,单纯的springBootWeb项目。检查spring-cloud-starter-config.pom文件若该文件里没有引入spring-cloud-config-client,需手动引入，否则拉取不到配置
               * 不配uri：默认连接8888端口。
