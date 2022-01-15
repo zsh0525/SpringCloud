@@ -4,8 +4,7 @@
     * 注意配置文件的优先级：bootstrap.XXXX > application.xxxxx,且SpringBoot2.4需单引入spring-boot-starter-bootstrap，才能读取bootstrap.XXXX
     * 官网才是永远的神。   
     * eureka原数据文件：spring-cloud-netflix-eureka-client-XXXXX.jar\spring-configuration-metadata.json 
-    * 持续踩坑中，不做大自然的搬运工。。。。
-   
+    * 持续踩坑中，不做大自然的搬运工。。。。   
     
 # SpringCloud组件学习及相关注意事项(基于 SpringCloud 2020.0.5 ,SpringBoot版本 2.5.X )
 ###### SpringCloudEureka * 
