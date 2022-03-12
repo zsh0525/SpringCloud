@@ -8,3 +8,17 @@ logging:
 #spring:
 #  config:
 #    import: optional:configserver:http://localhost:8888/
+
+# 开发actuator端口
+management:
+  server:
+    # 默认为服务的端口，可改成其他端口
+    port: 8082
+  endpoints:
+    health:
+      show-details: always
+    web:
+      base-path: /actuator # 请求路径
+      exposure:
+        # 默认只开发health端口，
+        include: "*"

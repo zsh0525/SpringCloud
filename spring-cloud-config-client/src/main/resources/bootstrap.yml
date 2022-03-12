@@ -1,0 +1,10 @@
+
+spring:
+  application:
+    name: zsh-config-client
+  cloud:
+    config:
+      name: zsh-config
+      label: master
+      profile: dev
+      uri: http://localhost:8081

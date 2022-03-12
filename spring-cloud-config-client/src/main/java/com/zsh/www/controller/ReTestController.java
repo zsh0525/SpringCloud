@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RefreshScope
-@RequestMapping("/refresh")
+@RequestMapping("/test")
 public class ReTestController {
     @Value("${name}")
     private String name;
