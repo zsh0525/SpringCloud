@@ -92,7 +92,7 @@
                           * exposure:
                             * include: "*" # 默认只开发health端口，
                 * 在具体类加上@RefreshScope注解
-                * 检查开发的方法:/actuator
+                * 检查开发的方法: /actuator
                 * 调用refresh（POST请求）刷新
         * 自动刷新：基于SpringCloudBus(消息总件)组件实现，底层基于mq刷新
         * 注：本地配置中心若引入的为外部文件自动刷新，github需要配置webhooks。（可内网穿透工具实现）。若引入了eureka依赖可不用引入actuator组件。
