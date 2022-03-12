@@ -9,7 +9,6 @@ logging:
 spring:
   application:
     name: zsh-config
-
   cloud:
     config:
       server:
