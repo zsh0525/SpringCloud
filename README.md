@@ -79,23 +79,21 @@
             * profile: 文件名
    * 应用端config如何刷新
         * 手动刷新：基于spring-boot-start-actuator组件实现，该组件具有监控程序在运行时的状态，actuator含有多个监控点。其中refresh,用于刷新监控。详细说明见SpringBootBase项目。
-            使用：
-                1.在配置文件中声明
-                    management:
-                      server:
-                        # 默认为服务的端口，可改成其他端口
-                        port: 8082
-                      endpoints:
-                        health:
-                          show-details: always
-                        web:
-                          base-path: /actuator # 请求路径
-                          exposure:
-                            # 默认只开发health端口，
-                            include: "*"
-                2.在具体类加上@RefreshScope注解
-                3.检查开发的方法:/actuator
-                4.调用refresh（POST请求）刷新。
+            * 使用：
+                * 在配置文件中声明 
+                    * management:
+                      * server:
+                        * port: 8082 # 默认为服务的端口，可改成其他端口
+                      * endpoints:
+                      * health:
+                          * show-details: always
+                        * web:
+                          * base-path: /actuator # 请求路径
+                          * exposure:
+                            * include: "*" # 默认只开发health端口，
+                * 在具体类加上@RefreshScope注解
+                * 检查开发的方法:/actuator
+                * 调用refresh（POST请求）刷新
         * 自动刷新：基于SpringCloudBus(消息总件)组件实现，底层基于mq刷新
         * 注：本地配置中心若引入的为外部文件自动刷新，github需要配置webhooks。（可内网穿透工具实现）。若引入了eureka依赖可不用引入actuator组件。
   
