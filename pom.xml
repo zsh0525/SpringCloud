@@ -14,7 +14,13 @@
         <module>spring-cloud-config</module>
         <module>spring-cloud-config-client</module>
         <module>spring-cloud-eureka</module>
+        <module>spring-cloud-eureka-provider</module>
+        <module>spring-cloud-eureka-consumer</module>
+        <module>common-starter</module>
     </modules>
+    <properties>
+        <common.starter.version>1.0-SNAPSHOT</common.starter.version>
+    </properties>
     <parent>
         <!--   SpringBoot引入     -->
         <groupId>org.springframework.boot</groupId>
