@@ -16,10 +16,9 @@ public class TestController {
     @Autowired
     TestService testService;
 
-    @RequestMapping("/consumerService")
+    @RequestMapping("/consumerServiceByFeignTest")
     public String consumerServiceTestByFeign() {
         return testService.getProviderService();
     }
-
 
 }
