@@ -17,7 +17,7 @@ public class TestController {
     TestService testService;
 
     @RequestMapping("/consumerService")
-    public String consumerServiceTest() {
+    public String consumerServiceTestByFeign() {
         return testService.getProviderService();
     }
 
