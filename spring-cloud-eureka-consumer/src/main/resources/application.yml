@@ -14,5 +14,5 @@ eureka:
     registerWithEureka: false
     # 服务中心是。由于是自己，因此与该项目的端口匹配。不设置默认访问8761端口。
     serviceUrl:
-      #      defaultZone: http://${eureka.instance.hostname}:${eureka-port}/eureka/
-      defaultZone: http://localhost:8083/eureka
+      # 负载用逗号隔开
+      defaultZone: http://localhost:8083/eureka,

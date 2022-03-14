@@ -7,7 +7,7 @@
     * 持续踩坑中，不做大自然的搬运工。。。。   
     
 # SpringCloud组件学习及相关注意事项(基于 SpringCloud 2020.0.5 ,SpringBoot版本 2.5.X )
-###### SpringCloudEureka * 
+##### SpringCloudEureka 
    * 简介
         * 基于Netflix实现的服务注册中心。分为服务端和应用端，服务端为服务注册中心，应用端可向服务端注册自己的服务。
    * 介绍
@@ -32,7 +32,7 @@
                       * 注：服务中心需要配置。由于是自己，因此与该项目的端口匹配。不设置默认访问8761端口。集群用，隔开。
             * 详细配置见：https://www.cnblogs.com/zyon/p/11023750.html
                  
-###### SpringCloudConfig 
+##### SpringCloudConfig 
    * 简介 
         * 配置式管理服务，用于管理项目中所涉及的配置数据。配置中心可以位于github丶SVN或者本地。分为服务端丶应用端。
 
@@ -98,5 +98,44 @@
         * 自动刷新：基于SpringCloudBus(消息总件)组件实现，底层基于mq刷新
         * 注：本地配置中心若引入的为外部文件自动刷新，github需要配置webhooks。（可内网穿透工具实现）。若引入了eureka依赖可不用引入actuator组件。
   
- 
+##### SpringCloudFeign
+   * 简介:模化的http应用模板，基于接口调用
+   * 简单使用:
+        * 在pom.xml引入依赖:spring-cloud-starter-openfeign
+        * 在启动类上加入@EnableFeignClients注解
+        * 在接口上加@FeignClient注解，声明服务的地址
+        * 在方法上加RequestMapping类型的注解，声明请求地址
+        * 在使用类的中类注入接口
+        * 在类中的方法中调用接口
+        * 项目见spring-cloud-eureka-consumer
+    * 底层实现:
+        * 当扫描到FeignClient注解会生成一个代理类
+        * 根据声明规则，在底层解析出一个MethodHandler对象
+        * 基于RequestBean动态生成request请求
+        * 用Encoder将Bean包装成请求
+        * 经过拦截器将请求和返回进行装饰处理
+        * 记录日志
+        * 用重试器发送http请求
 
+
+##### SpringCloudRibbon
+   * 简介:集成负载与请求于一身的组件，请求基于RestTemplate模板调用
+   * 简单使用:
+        * 请求
+            * 引入eurekaClient即可（3以上的版本，自带了ribbon）
+            * 向spring容器中注入RestTemplate对象
+            * 在使用的类中注入RestTemplate对象
+            * 调用RestTemplate.XXXXForObject方法
+        * 负载
+            * 在向容器注入的RestTemplate对象的方法上加上@LoadBalanced注解即可。默人复合规则
+                * 可设置:轮询,随机，重试轮询，......,具体见官网
+                * 注意事项:若想改规则，需向容器中注入对应的IRule，且需引入依赖
+        * 项目见spring-cloud-eureka-consumer
+        
+ #### SpringCloudGateWay
+ 
+ #### SpringCloudHystrix
+ 
+ #### Zuul
+    
+                

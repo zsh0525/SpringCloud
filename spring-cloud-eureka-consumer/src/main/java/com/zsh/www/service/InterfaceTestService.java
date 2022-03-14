@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @date
  */
 @FeignClient("zsh-provider")
-public interface TestService {
+public interface InterfaceTestService {
     @GetMapping("/test/getProviderStringService")
     String getProviderService();
 }
