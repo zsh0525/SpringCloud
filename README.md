@@ -132,6 +132,7 @@
                 * 注意事项:若想改规则，需向容器中注入对应的IRule，且需引入依赖
         * 项目见spring-cloud-eureka-consumer
         
+        
  #### SpringCloudGateWay 替代 Zuul
    * 简介:可做为全局服务的入口。
    * 简单使用:
