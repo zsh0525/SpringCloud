@@ -132,10 +132,31 @@
                 * 注意事项:若想改规则，需向容器中注入对应的IRule，且需引入依赖
         * 项目见spring-cloud-eureka-consumer
         
- #### SpringCloudGateWay
-
+ #### SpringCloudGateWay 替代 Zuul
+   * 简介:可做为全局服务的入口。
+   * 简单使用:
+     * pom文件中引入spring-cloud-starter-gateway jar包
+     * 在配置文件配置即可,配置内容如下:
+        * routes:
+           * - id: 随便取，id
+           * uri: 转发的地址
+           * predicates: # 规则
+                * - Path=/spring-cloud
+                
  #### SpringCloudHystrix
+   * 简介:断路器，在SpringCloud中防止服务雪崩的主要手段之一。其有4种模式
+     * 服务降级:当接口调用失败或超时就会调用fallback，立即返回信息给用户，避免阻塞。
+     * 服务熔断:当某个接口调用的次数在某段时间内达到了设定的值或者达到错误率达到了某个值，才会走fallback方法
+     * 服务隔离:可隔离服务之间的相互影响
+     * 服务监控:可观察到某个服务在某断时间内的相关信息，如成功数量，失败数量，熔断数，服务请求频率丶超时等相关信息
+   * 简单使用:
+     * pom文件中引入hystrix的jar包
+     * 启动类上加入@EnableHystrix注解
+     * 调用的接口上加入@HystrixCommand注解，指定调用失败的方法。需要熔断的或者隔离的依旧再该注解中配置属性。
+   * 注意事项:
+     * 由于Hystrix组件不再维护，因此不推荐使用该组件，可用其他开源组件替代（如：Sentinel，Resilience4j）或者之间使用alibaba整套框架
+   * 项目见:spring-cloud-eureka-consumer
  
- #### Zuul
+
     
                 

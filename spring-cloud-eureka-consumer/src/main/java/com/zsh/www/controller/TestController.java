@@ -1,5 +1,6 @@
 package com.zsh.www.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.zsh.www.service.InterfaceTestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,5 +30,18 @@ public class TestController {
     @GetMapping("/consumerServiceByRibbonTest")
     public String consumerServiceTesByRibbon() {
         return restTemplate.getForObject("http://zsh-provider/test/getProviderStringService", String.class);
+    }
+
+    @HystrixCommand(fallbackMethod = "hystrixDowngrade",commandProperties = {
+
+    })
+    @GetMapping("/consumerServiceTestHystrix")
+    public String consumerServiceTestHystrix() {
+        int i = 1 / 0;
+        return null;
+    }
+
+    public String hystrixDowngrade() {
+        return "调用失败";
     }
 }

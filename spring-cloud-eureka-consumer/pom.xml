@@ -33,6 +33,14 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+        <!-- 由于hystrix组件不再维护，目前在阿里仓库的地址是1.4.7版本，其他地址2.2.2，官网1.5.18 -->
+        <!--https://repo1.maven.org/maven2/org/springframework/cloud/spring-cloud-starter-hystrix-->
+        <!--https://github.com/Netflix/Hystrix/blob/2.0.x/CHANGELOG.md#hystrix-releases-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <version>2.2.2.RELEASE</version>
+        </dependency>
     </dependencies>
     <repositories>
         <!--  当前maven使用的镜像地址       -->
